@@ -1,0 +1,150 @@
+@import url("./main.css");
+@import "search_mobile.css";
+
+.searchPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchPage .header {
+    width: 100%;
+  }
+
+.searchPage .header .top-bar {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: var(--color-background1);
+    }
+
+.searchPage .header .top-bar .logo {
+        display: flex;
+      }
+
+.searchPage .header .top-bar .logo img {
+          box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3);
+          border-radius: 10px;
+          width: 50px;
+          height: 50px;
+          -o-object-fit: cover;
+             object-fit: cover;
+          margin: auto;
+        }
+
+.searchPage .header .top-bar #search_name {
+        flex-grow: 1;
+        background-color: var(--color-background-light);
+        border-radius: 10px;
+        display: flex;
+        padding: 0 10px;
+      }
+
+.searchPage .header .top-bar .close-icons {
+        margin: auto 10px;
+        cursor: pointer;
+      }
+
+.searchPage .header .top-bar .close-icons img {
+          width: 50px;
+          height: 50px;
+          -o-object-fit: cover;
+             object-fit: cover;
+        }
+
+.searchPage .header .top-bar .close-icons img:hover {
+            transform: scale(1.1);
+          }
+
+.searchPage .category{
+    color: var(--color-background-light);
+    padding:0 20px;
+    padding-top: 10px;
+
+  }
+
+.searchPage .searchFloatContent {
+    position: relative;
+    flex-grow: 1;
+    display:grid;
+    grid-auto-rows: 200px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+    justify-items: center;
+    overflow: auto;
+   
+  }
+
+.searchPage .searchFloatContent .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* 记载中动画 */
+      animation: rotate 1.5s linear infinite;
+      /* 旋转动画 */
+    }
+
+.searchPage .searchFloatContent .loading img {
+        width: 100px;
+        height: 100px;
+        -o-object-fit: cover;
+           object-fit: cover;
+        /* 彩色光环 */
+        filter: drop-shadow(0px 0px 100px rgba(255, 255, 255, 0.5));
+        /* 阴影效果 */
+        box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        
+      }
+
+.searchPage .searchFloatContent .nodata{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--color-background-light);
+        
+    }
+
+.searchPage .searchFloatContent .search_gameItem{
+        width: 100%;
+        height: 200px;
+        box-shadow: 0px 0px 4px 4px rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        /* 毛玻璃背景 */
+        -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
+        position:relative;
+        
+
+    }
+
+.searchPage .searchFloatContent .search_gameItem img{
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+.searchPage .searchFloatContent .search_gameItem .gameTitle {
+            position: absolute;
+            bottom: 0;
+            color: var(--color-background-light);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 2px;
+            border-radius: 4px;
+    
+            /* 单行超出省略 */
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+          }

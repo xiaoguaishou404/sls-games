@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=375, user-scalable=no" />
+    <title>_title_</title>
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="prod-css/index.css">
+    <script src="./assets/js/swiper-element-bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="indexPage loadingAnimation" id="indexPage">
+
+        <header class="header">
+            <div class="top-bar">
+                <div class="logo">
+                    <img src="logo.png" alt="" srcset="">
+                </div>
+                <!-- <a href="search.html" class="search-bar">
+                    <div class="icon">🔍</div>
+
+                </a> -->
+
+                <div class="menu-icons" onclick="switchMenu()">
+                    <img class="icon" src="./assets/menu@3x.png" alt="" srcset="">
+                </div>
+            </div>
+            <div class="menuFloatContent hidden">
+            </div>
+        </header>
+
+
+
+        <swiper-container init="false" class="gameSwiper" navigation="true" pagination="true"
+            pagination-clickable="true" space-between="10" slides-per-view="1" breakpoints='{
+            "1200": {
+                "slidesPerView": 3
+            },
+            "700": {
+                "slidesPerView": 2
+            }
+        }'>
+        </swiper-container>
+
+        <main class="main-content">
+
+
+
+            <a href="search.html" class="search-bar">
+                <div class="icon">🔍</div>
+            </a>
+
+
+            <section class="hot font2">
+                <h2> <img src="./assets/2 copy.png" alt=""> HOT</h2>
+                <div class="hotGameGridBox">
+
+
+                </div>
+            </section>
+
+            <section class="newGame font2">
+                <h2> <img src="./assets/3 copy.png" alt="">NEW</h2>
+                <div class="newGameGridBox">
+
+                </div>
+            </section>
+
+            <section class="threeD font2">
+                <h2>
+                    <div class="left"><img src="./assets/2 copy.png" alt="">threeD</div>
+                    <a href="search.html?category=3D" class="more-link">more &gt;</a>
+                </h2>
+                <div class="threeDGameGridBox">
+
+                </div>
+            </section>
+
+            <section class="Adventure font2">
+                <h2>
+                    <div class="left"><img src="./assets/4 copy.png" alt="">Adventure</div>
+
+                    <a href="search.html?category=Adventure" class="more-link">more &gt;</a>
+                </h2>
+                <div class="AdventureGameGridBox">
+                </div>
+            </section>
+
+            <section class="Boys font2">
+                <h2>
+                    <div class="left"><img src="./assets/5 copy.png" alt="">Boys</div>
+
+                    <a href="search.html?category=Boys" class="more-link">more &gt;</a>
+                </h2>
+                <div class="BoysGameGridBox">
+                </div>
+            </section>
+
+
+
+
+        </main>
+
+        <div class="site-info-area font1">
+            <h2 style="text-align: center">
+                If you enjoy our site, learn more about GAME!
+            </h2>
+
+
+            <p>
+                Discover a world of exciting challenges online at GAME, the ultimate
+                destination for amazing games designed for girls, boys, and kids with
+                diverse interests! Our website offers a vast collection of free games,
+                accessible on mobile phones, tablets, computers, and laptops. With a
+                variety of fun categories, you can enjoy your favorite characters in
+                games like motorcycle, adventure, spa, action, makeover, and dress-up,
+                suitable for both boys and girls. Popular cartoon categories include
+                Princesses, Ben 10, Batman, Superheroes, Pokemon, Fantastic Four, Hulk,
+                Thor, Little Mermaid, Moana, and Frozen.
+                10,Batman,Superheroes,Pokemon,Fantastic Four,Hulk,Thor,Little
+                Mermaid,Moana or Frozen!
+            </p>
+
+
+            <p>
+                Experience cutting-edge technology with HTML5 games, ensuring seamless
+                play on mobile devices. Just connect to the internet, visit GAME via
+                Google, and start playing with friends. Explore our new 2 Player
+                category, along with 3 Player and even 4 Player games for children.
+                Challenge yourself with adventure, chess, puzzle, shooting, and racing
+                games, featuring fast cars, 3D vehicles, motorcycles, helicopters,
+                airplanes, and F1 cars. Dive into endless fun and adventure on GAME!
+            </p>
+
+
+        </div>
+        <div class="shengming font1">
+            <h3 style="text-align: center">About Us</h3>
+            <div>
+                User Responsibility: Users shall bear full responsibility for the
+                content they provide in accordance with the law, and the platform shall
+                not assume any responsibility. The content uploaded by the user only
+                represents the author's viewpoint and does not represent the platform's
+                viewpoint. The platform has the right to modify and interpret this
+                statement. If there are any changes, the user will be notified in an
+                appropriate manner. The user's continued use of the game service is
+                deemed to have accepted the modified declaration
+            </div>
+            <div class="policy">
+                <a href="./PrivacyPolicy.html">Privacy Policy</a>
+                <span> &nbsp; | &nbsp;</span>
+                <a href="./TermsofService.html">Terms-of Service</a>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</body>
+<script type="module">
+    import { getGamesListApi } from "./assets/js/business.js";
+    let gamesListIndex = 0
+    let GameList = await getGamesListApi({ num: 50 });
+
+    GameList.slice(0, gamesListIndex += 10).forEach((item) => {
+        const swiperSlide = document.createElement('swiper-slide');
+        swiperSlide.innerHTML = `
+        <a href="play.html?title=${item.title}">
+            <img src="${item.thumb}" alt="">
+            <div class="font1 nameBox font4">${item.title}</div>
+        </a>`;
+        document.querySelector('.gameSwiper').appendChild(swiperSlide);
+    });
+
+
+
+
+
+    const swiperEl = document.querySelector('swiper-container')
+
+    const params = {
+        injectStyles: [`
+        // .swiper{
+        //    padding-bottom: 30px; /* 为pagination留出空间 */
+        // }
+        .swiper-pagination{
+            --swiper-pagination-bottom: 70px;
+            // transform:translateY(50px);
+            right: 10px;
+            width: fit-content !important;
+            left: auto !important;
+        }
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            text-align: center;
+            line-height: 10px;
+            font-size: 12px;
+            color: #000;
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .swiper-pagination-bullet-active {
+            color: #fff;
+            background:  #fff;
+        }
+  `],
+        // pagination: {
+        //     clickable: true,
+        //     renderBullet: function (index, className) {
+        //         return '<span class="' + className + '">' + (index + 1) + "</span>";
+        //     },
+        // },
+    }
+
+    Object.assign(swiperEl, params)
+
+    swiperEl.initialize();
+
+
+
+
+
+
+
+
+    let hotGameList = GameList.slice(gamesListIndex, gamesListIndex += 16)
+    hotGameList.forEach((item) => {
+        const hotGameItem = document.createElement('div');
+        // 写一个3.5到5的随机数，保留一位小数
+        let randomNum = (Math.random() * 1.5 + 3.5).toFixed(1)
+        hotGameItem.className = 'game-item';
+        hotGameItem.innerHTML = `
+            <a href="play.html?title=${item.title}">
+                <img class="gameImg" src="${item.thumb}" alt="">
+                <div class="font3 nameBox">
+                    <div class="title font3">${item.title}</div>
+                     <div class="mark font2">
+                        <img src="./assets/star.png" alt="">
+                        ${randomNum}</div>
+                    <div class="play font3">play</div>
+                </div>
+            </a>
+      `;
+
+        document.querySelector('.hotGameGridBox').appendChild(hotGameItem);
+
+
+    })
+
+    let newGameList = GameList.slice(gamesListIndex, gamesListIndex += 6)
+    newGameList.forEach((item) => {
+        const newGameItem = document.createElement('div');
+        // 写一个3.5到5的随机数，保留一位小数
+        let randomNum = (Math.random() * 1.5 + 3.5).toFixed(1)
+        newGameItem.className = 'game-item';
+        newGameItem.innerHTML = `
+             <a href="play.html?title=${item.title}">
+                <img class="gameImg" src="${item.thumb}" alt="">
+                <div class="font3 nameBox">
+                    <div class="title font3">${item.title}</div>
+                     <div class="mark font2">
+                        <img src="./assets/star.png" alt="">
+                        ${randomNum}</div>
+                    <div class="play font3">play</div>
+                </div>
+            </a>
+            `;
+        document.querySelector('.newGameGridBox').appendChild(newGameItem);
+    })
+
+    // 关闭首评加载动画的时机
+    document.querySelector('.indexPage').classList.toggle('loadingAnimation', false)
+    // 关闭首评加载动画的时机
+
+
+
+    let threeDGameList = await getGamesListApi({ num: 12, category: 3 });
+    threeDGameList.forEach((item) => {
+        const threeDGameItem = document.createElement('div');
+        threeDGameItem.className = 'game-item';
+        threeDGameItem.innerHTML = `
+            <a href="play.html?title=${item.title}">
+                <img src="${item.thumb}" alt="">
+                <div class="title font4">${item.title}</div>
+            </a>
+            `;
+        document.querySelector('.threeDGameGridBox').appendChild(threeDGameItem);
+    })
+
+
+
+
+
+
+
+
+    let AdventureGameList = await getGamesListApi({ num: 12, category: 4 });
+    AdventureGameList.forEach((item) => {
+        const AdventureGameItem = document.createElement('div');
+        AdventureGameItem.className = 'game-item';
+        AdventureGameItem.innerHTML = `
+            <a href="play.html?title=${item.title}">
+                <img src="${item.thumb}" alt="">
+                <div class="title font4">${item.title}</div>
+            </a>
+            `;
+
+
+        document.querySelector('.AdventureGameGridBox').appendChild(AdventureGameItem);
+    })
+
+
+    let BoysGameGridList = await getGamesListApi({ num: 12, category: 7 });
+    BoysGameGridList.forEach((item) => {
+        const AdventureGameItem = document.createElement('div');
+        AdventureGameItem.className = 'game-item';
+        AdventureGameItem.innerHTML = `
+            <a href="play.html?title=${item.title}">
+                <img src="${item.thumb}" alt="">
+                <div class="title font4">${item.title}</div>
+            </a>
+            `;
+
+
+        document.querySelector('.BoysGameGridBox').appendChild(AdventureGameItem);
+    })
+
+    import("./assets/js/business.js").then((res) => {
+        let menuFloatContent = document.querySelector('.menuFloatContent')
+        res.getGamesListCategory
+            .forEach((item, index) => {
+                let div = document.createElement('div')
+                div.className = 'categoryItem font4'
+                div.innerHTML = `
+            <a href="search.html?category=${item}">
+                <img src="./assets/c-${index + 1}.png" alt="" srcset="">
+                <div class="categoryName">${item}</div>
+            </a>
+            `
+                menuFloatContent.appendChild(div)
+            })
+    })
+
+    window.switchMenu = function () {
+        document.querySelector('.menuFloatContent').classList.toggle('hidden')
+
+    }
+
+
+
+
+
+
+</script>
+
+<!-- gtag -->
+
+</html>

@@ -1,0 +1,243 @@
+
+  @media screen and (max-width: 1200px) {
+      #indexPage .threeDGameGridBox .game-item,#indexPage .AdventureGameGridBox .game-item,#indexPage .BoysGameGridBox .game-item {
+        width: calc(100% / 4);
+      }
+        #indexPage .threeDGameGridBox .game-item:nth-last-child(-n + 4) {
+          display: none;
+        }
+        #indexPage .AdventureGameGridBox .game-item:nth-last-child(-n + 4) {
+          display: none;
+        }
+        #indexPage .BoysGameGridBox .game-item:nth-last-child(-n + 4) {
+          display: none;
+        }
+  }
+@media screen and (max-width: 800px) {
+      #indexPage .threeDGameGridBox .game-item,#indexPage .AdventureGameGridBox .game-item,#indexPage .BoysGameGridBox .game-item {
+        width: calc(100% / 3);
+      }
+        #indexPage .threeDGameGridBox .game-item img,#indexPage .AdventureGameGridBox .game-item img,#indexPage .BoysGameGridBox .game-item img {
+          border-radius: 10px;
+          /* border: 4px solid var(--color-background-light2); */
+        }
+        #indexPage .threeDGameGridBox .game-item:nth-last-child(-n + 6) {
+          display: none;
+        }
+        #indexPage .AdventureGameGridBox .game-item:nth-last-child(-n + 6) {
+          display: none;
+        }
+        #indexPage .BoysGameGridBox .game-item:nth-last-child(-n + 6) {
+          display: none;
+        }
+  }
+@media screen and (max-width: 500px) {
+      #indexPage .threeDGameGridBox .game-item,#indexPage .AdventureGameGridBox .game-item,#indexPage .BoysGameGridBox .game-item {
+        width: calc(100% / 3);
+      }
+        #indexPage .threeDGameGridBox .game-item:nth-last-child(-n + 9) {
+          display: none;
+        }
+        #indexPage .AdventureGameGridBox .game-item:nth-last-child(-n + 9) {
+          display: none;
+        }
+        #indexPage .BoysGameGridBox .game-item:nth-last-child(-n + 9) {
+          display: none;
+        }
+  }
+/* 核心处理 */
+@media screen and (max-width: 1000px) {
+    #indexPage .hotGameGridBox {
+      display: grid;
+      grid-auto-rows: 200px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+      #indexPage .hotGameGridBox .game-item:nth-child(1) {
+        grid-row: span 2;
+        grid-column: span 1;
+      }
+      #indexPage .hotGameGridBox .game-item:nth-child(4) {
+        grid-row: span 1;
+        grid-column: span 2;
+      }
+
+    #indexPage .newGameGridBox {
+      display: grid;
+      grid-auto-rows: 200px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+      #indexPage .newGameGridBox .game-item:nth-child(5) {
+        grid-row: span 1;
+        grid-column: span 2;
+      }
+      #indexPage .newGameGridBox .game-item:nth-child(6) {
+        grid-row: span 1;
+        grid-column: span 2;
+      }
+
+    @media screen and (max-width: 500px) {
+      #indexPage .font1 {
+        font-size: 1rem;
+        font-weight: 300;
+      }
+      #indexPage .font2 {
+        font-size: 0.6rem;
+        font-weight: 400;
+      }
+      #indexPage .font3 {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+      #indexPage .font4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+      #indexPage .font5 {
+        font-size: 4rem;
+        font-weight: 800;
+      }
+
+      #indexPage .main-content {
+        padding: 0;
+      }
+        #indexPage swiper-slide a {
+          box-shadow: 0px 150px 50px -100px rgba(0, 0, 0, 1) inset,
+            0px -200px 100px -100px rgba(0, 0, 0, 1) inset;
+        }
+      #indexPage .hotGameGridBox,#indexPage .newGameGridBox {
+        display: flex;
+        overflow: auto;
+      }
+        #indexPage .hotGameGridBox::-webkit-scrollbar {
+          display: none;
+        }
+        #indexPage .newGameGridBox::-webkit-scrollbar {
+          display: none;
+        }
+        #indexPage .hotGameGridBox .game-item,#indexPage .newGameGridBox .game-item {
+          flex-shrink: 0;
+          width: 100px;
+          height: 200px;
+        }
+          #indexPage .hotGameGridBox .game-item .gameImg,#indexPage .newGameGridBox .game-item .gameImg {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+          }
+          #indexPage .hotGameGridBox .game-item .nameBox,#indexPage .newGameGridBox .game-item .nameBox {
+            height: 80%;
+            background-color: transparent;
+            background-color: initial;
+            padding: 10px;
+          }
+
+            #indexPage .hotGameGridBox .game-item .nameBox .title,#indexPage .newGameGridBox .game-item .nameBox .title {
+              font-size: 14px;
+              /* 单行文本超出省略 */
+              width: 100%;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          #indexPage .hotGameGridBox .game-item .nameBox,#indexPage .newGameGridBox .game-item .nameBox {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 10px;
+          }
+            #indexPage .hotGameGridBox .game-item .nameBox .mark,#indexPage .newGameGridBox .game-item .nameBox .mark {
+              display: inline;
+              display: initial;
+            }
+            #indexPage .hotGameGridBox .game-item .nameBox .play,#indexPage .newGameGridBox .game-item .nameBox .play {
+              display: inline;
+              display: initial;
+              padding: 5px 20px;
+              border-radius: calc(infinity * 1px);
+
+              background-color: var(--color-background-light1);
+            }
+        #indexPage .newGameGridBox .game-item {
+          border-radius: 10px;
+          height: 170px;
+        }
+
+          #indexPage .newGameGridBox .game-item .gameImg {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+          }
+              #indexPage .newGameGridBox .game-item:nth-child(1n) .nameBox .play {
+                background-color: white;
+                color: #7b59f8;
+              }
+            #indexPage .newGameGridBox .game-item:nth-child(1n) .nameBox {
+
+              background: linear-gradient(
+                to bottom,
+                #9d59fa,
+                #9258f9,
+                #8658f9,
+                #7b59f8
+              );
+            }
+              #indexPage .newGameGridBox .game-item:nth-child(2n) .nameBox .play {
+                background-color: white;
+                color: #329d91;
+              }
+            #indexPage .newGameGridBox .game-item:nth-child(2n) .nameBox {
+              background: linear-gradient(
+                to bottom,
+                #57c7a1,
+                #51c09d,
+                #45b197,
+                #329d91
+              );
+            }
+              #indexPage .newGameGridBox .game-item:nth-child(3n) .nameBox .play {
+                background-color: white;
+                color: #0c77ff;
+              }
+            #indexPage .newGameGridBox .game-item:nth-child(3n) .nameBox {
+              background: linear-gradient(
+                to bottom,
+                #38aafe,
+                #2b9bfd,
+                #1f8cfd,
+                #0c77ff
+              );
+            }
+          #indexPage .threeDGameGridBox .game-item .title,#indexPage .AdventureGameGridBox .game-item .title,#indexPage .BoysGameGridBox .game-item .title {
+            display:inline;
+            display:initial;
+            flex-shrink: 0;
+          }
+          #indexPage .threeDGameGridBox .game-item a,#indexPage .AdventureGameGridBox .game-item a,#indexPage .BoysGameGridBox .game-item a{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+          }
+            #indexPage .threeDGameGridBox .game-item a .title,#indexPage .AdventureGameGridBox .game-item a .title,#indexPage .BoysGameGridBox .game-item a .title{
+              color: var(--color-background-light);
+              /* 单行文本超出省略 */
+              width: 100%;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;  
+              
+            }
+      #indexPage .site-info-area {
+        margin: 20px;
+      }
+      #indexPage .shengming {
+        margin: 20px;
+      }
+    }
+  }

@@ -1,0 +1,32 @@
+#searchPage {
+  @media screen and (max-width: 500px) {
+    .font1 {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+    .font2 {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+    .font3 {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .font4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .font5 {
+      font-size: 4rem;
+      font-weight: 800;
+    }
+    .searchFloatContent {
+      grid-auto-rows: 100px;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      .search_gameItem{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

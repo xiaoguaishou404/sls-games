@@ -1,0 +1,22 @@
+@import "./base.css";
+@import "./tool.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  all: unset;
+}
+
+body {
+  line-height: 1;
+  transition: all 0.5s;
+  font-size: var(--fontSize);
+  background: var(--color-background-dark);
+}
+
+

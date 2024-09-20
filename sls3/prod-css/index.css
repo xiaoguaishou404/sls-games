@@ -1,0 +1,384 @@
+@import url("./main.css");
+@import "index_mobile.css";
+
+.indexPage {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+
+.indexPage .header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+  }
+
+.indexPage .header .top-bar {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: var(--color-background1);
+    }
+
+.indexPage .header .top-bar .logo {
+        display: flex;
+      }
+
+.indexPage .header .top-bar .logo img {
+          box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3);
+          border-radius: 10px;
+          width: 50px;
+          height: 50px;
+          -o-object-fit: cover;
+             object-fit: cover;
+          margin: auto;
+        }
+
+.indexPage .header .top-bar .search-bar {
+        flex-grow: 1;
+        background-color: var(--color-background-light);
+        border-radius: 10px;
+        display: flex;
+      }
+
+.indexPage .header .top-bar .search-bar .icon {
+          font-size: 20px;
+          margin: auto 10px;
+        }
+
+.indexPage .header .top-bar .menu-icons {
+        margin: auto 10px;
+        cursor: pointer;
+      }
+
+.indexPage .header .menuFloatContent {
+      position: absolute;
+      z-index: 1;
+      top: 100%;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-background1);
+      padding: 10px;
+      height: 70vh;
+      overflow: auto;
+      border-radius: 0 0 0 10px;
+    }
+
+.indexPage .header .menuFloatContent.hidden {
+        display: none;
+      }
+
+.indexPage .header .menuFloatContent .categoryItem {
+        color: var(--color-background-light);
+      }
+
+.indexPage .header .menuFloatContent .categoryItem a {
+          display: block;
+          box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3);
+          border-radius: 10px;
+          width: 200px;
+          padding: 10px;
+          text-align: center;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+
+.indexPage .header .menuFloatContent .categoryItem a:hover {
+            background-color: var(--color-background-light);
+            color: var(--color-background1);
+          }
+
+.indexPage .main-content {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+.indexPage .main-content swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+.indexPage .main-content swiper-container swiper-slide {
+        text-align: center;
+      }
+
+.indexPage .main-content swiper-container swiper-slide a {
+          width: 100%;
+          height: 100%;
+          display: flex;
+        }
+
+.indexPage .main-content swiper-container swiper-slide img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          -o-object-fit: cover;
+             object-fit: cover;
+          border-radius: 10px;
+        }
+
+.indexPage .main-content .hot h2 {
+        color: var(--color-background-light);
+        padding: 20px 0;
+      }
+
+.indexPage .main-content .hot .hotGameGridBox {
+        display: grid;
+        grid-auto-rows: 300px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        gap: 10px;
+      }
+
+.indexPage .main-content .hot .hotGameGridBox .game-item {
+          position: relative;
+        }
+
+.indexPage .main-content .hot .hotGameGridBox .game-item::before {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+
+            -o-object-fit: cover;
+
+               object-fit: cover;
+            top: 0;
+            left: -8px;
+            background-image: url(../assets/huore.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: 0 0;
+          }
+
+.indexPage .main-content .hot .hotGameGridBox .game-item a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+          }
+
+.indexPage .main-content .hot .hotGameGridBox .game-item img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+            border-radius: 8px;
+            background-color: var(--color-background1);
+            overflow: hidden;
+          }
+
+.indexPage .main-content .hot .hotGameGridBox .game-item .nameBox {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--color-background-light);
+          }
+
+.indexPage .main-content .newGame h2 {
+        color: var(--color-background-light);
+        padding: 20px 0;
+      }
+
+.indexPage .main-content .newGame .newGameGridBox {
+        display: grid;
+        grid-auto-rows: 200px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        gap: 10px;
+      }
+
+.indexPage .main-content .newGame .newGameGridBox .game-item {
+          position: relative;
+        }
+
+.indexPage .main-content .newGame .newGameGridBox .game-item::before {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+
+            -o-object-fit: cover;
+
+               object-fit: cover;
+            top: 0;
+            left: -8px;
+            background-image: url(../assets/xin.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: 0 0;
+          }
+
+.indexPage .main-content .newGame .newGameGridBox .game-item a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+          }
+
+.indexPage .main-content .newGame .newGameGridBox .game-item img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+            border-radius: 8px;
+            background-color: var(--color-background1);
+          }
+
+.indexPage .main-content .newGame .newGameGridBox .game-item .nameBox {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--color-background-light);
+          }
+
+.indexPage .main-content .threeD h2 {
+        padding: 20px 0;
+        color: var(--color-background-light);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+.indexPage .main-content .threeD h2 .more-link {
+          cursor: pointer;
+        }
+
+.indexPage .main-content .threeD .threeDGameGridBox {
+        display: grid;
+        grid-auto-rows: 300px;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 10px;
+        gap: 10px;
+      }
+
+.indexPage .main-content .threeD .threeDGameGridBox .game-item {
+          background-color: var(--color-background1);
+          border-radius: 8px;
+          overflow: hidden;
+        }
+
+.indexPage .main-content .threeD .threeDGameGridBox .game-item a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+          }
+
+.indexPage .main-content .threeD .threeDGameGridBox .game-item img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+          }
+
+.indexPage .main-content .Adventure h2 {
+        padding: 20px 0;
+        color: var(--color-background-light);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+.indexPage .main-content .Adventure h2 .more-link {
+          cursor: pointer;
+        }
+
+.indexPage .main-content .Adventure .AdventureGameGridBox {
+        display: grid;
+        grid-auto-rows: 300px;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 10px;
+        gap: 10px;
+      }
+
+.indexPage .main-content .Adventure .AdventureGameGridBox .game-item {
+          background-color: var(--color-background1);
+          border-radius: 8px;
+          overflow: hidden;
+        }
+
+.indexPage .main-content .Adventure .AdventureGameGridBox .game-item a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+          }
+
+.indexPage .main-content .Adventure .AdventureGameGridBox .game-item img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+          }
+.indexPage.loadingAnimation::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      var(--color-background-light1),
+      var(--color-background-dark)
+    ); /* 背景渐变色 */
+  }
+.indexPage.loadingAnimation::after {
+    content: "loading...";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: var(--color-background-light);
+    font-size: 50px;
+    font-weight: bold;
+    /* 字体抖动动画 */
+    animation: shake 1.5s linear infinite, fadeIn 1.5s linear infinite;
+  }
+
+.site-info-area {
+  max-width: 1500px;
+  margin: 20px auto;
+  background: var(--color-background-light);
+  border-radius: 15px;
+  padding: 15px;
+  line-height: 1.5;
+}
+
+.shengming {
+  max-width: 1500px;
+  margin: 20px auto;
+  background: var(--color-background-light);
+  border-radius: 15px;
+  padding: 15px;
+  line-height: 1.5;
+}
+
+.shengming .policy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.shengming .policy a {
+      color: #000;
+      color: initial;
+    }

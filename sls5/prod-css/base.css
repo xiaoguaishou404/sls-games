@@ -1,0 +1,149 @@
+:root {
+  /* 黑色-白色 */
+  --color-hsl-black-h: 0;
+  --color-hsl-black-s: 0%;
+  --color-hsl-l0: 0%;
+  --color-hsl-l1: calc(var(--color-hsl-l0) + 10%);
+  --color-hsl-l2: calc(var(--color-hsl-l0) + 20%);
+  --color-hsl-l3: calc(var(--color-hsl-l0) + 30%);
+  --color-hsl-l4: calc(var(--color-hsl-l0) + 40%);
+  --color-hsl-l5: calc(var(--color-hsl-l0) + 50%);
+  --color-hsl-l6: calc(var(--color-hsl-l0) + 60%);
+  --color-hsl-l7: calc(var(--color-hsl-l0) + 70%);
+  --color-hsl-l8: calc(var(--color-hsl-l0) + 80%);
+  --color-hsl-l9: calc(var(--color-hsl-l0) + 90%);
+  --color-hsl-l10: calc(var(--color-hsl-l0) + 100%);
+  /* chrome */
+  /* --color-background: hsl(from var(--color-black-1) h s calc(l + 40)); */
+  /* safari */
+  /* @supports (color: hsl(from var(--color-black-1) h s calc(l + 40%))) {
+    --color-background: hsl(from var(--color-black-1) h s calc(l + 40%));
+  } */
+  --px-10:10px;
+  --fontSize:10px;
+  /* --color-background-gray: #f0efed;
+  --color-background-red: #f0efed; */
+  --color-opposite:hsl(calc(var(--color-hsl-background-h) + 90), var(--color-hsl-background-s), var(--color-hsl-background-l));
+  --color-adjacent:hsl(calc(var(--color-hsl-background-h) - 60), calc(var(--color-hsl-background-s) + 40%), calc(var(--color-hsl-background-l) + 20%));
+  --color-font1: hsl(calc(var(--color-hsl-background-h) + 20), var(--color-hsl-background-s), calc(var(--color-hsl-background-l) - 50%));
+  --color-font2: hsl(calc(var(--color-hsl-background-h) + 20), var(--color-hsl-background-s), calc(var(--color-hsl-background-l) - 40%));
+  --color-font3: hsl(calc(var(--color-hsl-background-h) + 20), var(--color-hsl-background-s), calc(var(--color-hsl-background-l) - 30%));
+  --color-font4: hsl(calc(var(--color-hsl-background-h) + 20), var(--color-hsl-background-s), calc(var(--color-hsl-background-l) - 20%));
+  --color-background1: hsl(var(--color-hsl-background-h), var(--color-hsl-background-s), var(--color-hsl-background-l) );
+  --color-background2: hsla( calc(var(--color-hsl-background-h) + 50), calc(var(--color-hsl-background-s) + 40%), calc(var(--color-hsl-background-l) - 80%) , 0.3);
+  --color-background3: hsla(calc(var(--color-hsl-background-h) + 40), calc(var(--color-hsl-background-s) - 30%), calc(var(--color-hsl-background-l) - 20%) , 0.3);
+  --color-background-light: hsl(var(--color-hsl-background-h), var(--color-hsl-background-s), calc(var(--color-hsl-background-l) + 100%));
+  --color-background-light1: hsl(calc(var(--color-hsl-background-h) - 10), calc(var(--color-hsl-background-s) + 10%), calc(var(--color-hsl-background-l) + 50%));
+  --color-background-light2: hsla(calc(var(--color-hsl-background-h) - 10), calc(var(--color-hsl-background-s) - 40%), calc(var(--color-hsl-background-l) + 40%), 0.6);
+  --color-background-dark: hsl(var(--color-hsl-background-h), calc(var(--color-hsl-background-s) + 30%), calc(var(--color-hsl-background-l) - 20%));
+}
+:root[cyan] {
+  --color-hsl-background-h: 168;
+  --color-hsl-background-s: 100%;
+  --color-hsl-background-l: 75%;
+}
+
+:root[blueOcean] {
+  --color-hsl-background-h: 200;
+  --color-hsl-background-s: 70%;
+  --color-hsl-background-l: 60%;
+}
+
+:root[sunsetOrange] {
+  --color-hsl-background-h: 25;
+  --color-hsl-background-s: 80%;
+  --color-hsl-background-l: 70%;
+}
+
+:root[lavenderDream] {
+  --color-hsl-background-h: 270;
+  --color-hsl-background-s: 50%;
+  --color-hsl-background-l: 70%;
+}
+
+:root[mintGreen] {
+  --color-hsl-background-h: 150;
+  --color-hsl-background-s: 50%;
+  --color-hsl-background-l: 75%;
+}
+
+:root[peachBlossom] {
+  --color-hsl-background-h: 10;
+  --color-hsl-background-s: 65%;
+  --color-hsl-background-l: 80%;
+}
+
+:root[skyBlue] {
+  --color-hsl-background-h: 210;
+  --color-hsl-background-s: 100%;
+  --color-hsl-background-l: 70%;
+}
+
+:root[coralPink] {
+  --color-hsl-background-h: 5;
+  --color-hsl-background-s: 75%;
+  --color-hsl-background-l: 65%;
+}
+
+:root[emeraldGreen] {
+  --color-hsl-background-h: 140;
+  --color-hsl-background-s: 60%;
+  --color-hsl-background-l: 60%;
+}
+
+:root[plumPurple] {
+  --color-hsl-background-h: 290;
+  --color-hsl-background-s: 50%;
+  --color-hsl-background-l: 55%;
+}
+
+:root[goldenYellow] {
+  --color-hsl-background-h: 45;
+  --color-hsl-background-s: 85%;
+  --color-hsl-background-l: 60%;
+}
+:root[bluishViolet] {
+  --color-hsl-background-h: 240;
+  --color-hsl-background-s: 50%;
+  --color-hsl-background-l:10%;
+}
+
+
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    --color-background: var( --color-background-gray);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(  --color-background-red);
+  }
+} */
+
+.font08 {
+  font-size: 0.8rem;
+}
+.font1 {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.font2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.font3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.font4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.font5{
+  font-size: 4rem;
+  font-weight: 800;
+}

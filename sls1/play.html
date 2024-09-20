@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=375, user-scalable=no" />
+    <title>_title_</title>
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="prod-css/play.css">
+
+</head>
+
+<body>
+    <div class="playPage" id="playPageId">
+        <div class="introduce">
+            <div class="gameBanner"> <img class="gameBannerImg" src="" alt=""></div>
+            <div class="message">
+                <div class="bgdContent">
+                    <div class="title font5"></div>
+                    <div class="category font1"></div>
+                    <div class="tags font3"></div>
+                    <div class="pubDate font3"></div>
+                </div>
+
+            </div>
+        </div>
+        <div onclick="gotoPlayGame()" class="playButton font5">PLAY</div>
+        <div class="description font1">
+
+        </div>
+        <div class="SimilarGame">
+
+        </div>
+        <a href="./">
+            <div class="HomeButton font1"><span>HOME</span></div>
+        </a>
+
+    </div>
+
+</body>
+<script type="module" src="assets/js/business.js"></script>
+
+<script src="https://d24j3bpujao8b5.cloudfront.net/public/fetchdata/index.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const guid = urlParams.get("guid");
+        console.log(guid);
+
+
+        getDataAll().then((res) => {
+            gamedata = res.filter((item) => item.guid === guid)[0];
+            console.log(gamedata);
+            document.getElementsByClassName("gameBannerImg")[0].src = gamedata.thumb;
+            document.getElementsByClassName("title")[0].innerHTML = gamedata.title;
+            document.getElementsByClassName("category")[0].innerHTML = gamedata.category;
+            document.getElementsByClassName("tags")[0].innerHTML = gamedata.tags;
+            document.getElementsByClassName("pubDate")[0].innerHTML = formatDate(gamedata.pubDate);
+            document.getElementsByClassName("description")[0].innerHTML = gamedata.description;
+            categorizeData(undefined, undefined, 36)[gamedata.category].forEach((item) => {
+                document.getElementsByClassName("SimilarGame")[0].innerHTML +=
+                    `
+        <a href="play.html?guid=${item.guid}">
+            <div class="gameItem"> <img src="${item.thumb}" alt=""></div>
+        </a>
+       
+       `
+            })
+
+        });
+
+    });
+    function gotoPlayGame() {
+        window.location.href = gamedata.link;
+
+    }
+    function formatDate(dateString) {
+        // 将日期字符串解析为Date对象
+        const date = new Date(dateString);
+
+        // 获取各个时间部分
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const seconds = String(date.getSeconds()).padStart(2, '0');
+
+        // 格式化为YYYY-MM-DD HH:mm:ss
+        const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
+        return formattedDate;
+    }
+</script>
+
+</html>

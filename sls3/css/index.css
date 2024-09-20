@@ -1,0 +1,348 @@
+@import url("./main.css");
+@import "index_mobile.css";
+
+.indexPage {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    .top-bar {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: var(--color-background1);
+      .logo {
+        display: flex;
+        img {
+          box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3);
+          border-radius: 10px;
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+          margin: auto;
+        }
+      }
+      .search-bar {
+        flex-grow: 1;
+        background-color: var(--color-background-light);
+        border-radius: 10px;
+        display: flex;
+
+        .icon {
+          font-size: 20px;
+          margin: auto 10px;
+        }
+      }
+      .menu-icons {
+        margin: auto 10px;
+        cursor: pointer;
+      }
+    }
+    .menuFloatContent {
+      position: absolute;
+      z-index: 1;
+      top: 100%;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-background1);
+      padding: 10px;
+      height: 70vh;
+      overflow: auto;
+      border-radius: 0 0 0 10px;
+      &.hidden {
+        display: none;
+      }
+      .categoryItem {
+        color: var(--color-background-light);
+
+        a {
+          display: block;
+          box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3);
+          border-radius: 10px;
+          width: 200px;
+          padding: 10px;
+          text-align: center;
+          cursor: pointer;
+          transition: 0.3s;
+          &:hover {
+            background-color: var(--color-background-light);
+            color: var(--color-background1);
+          }
+        }
+      }
+    }
+  }
+
+  .main-content {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+
+    swiper-container {
+      width: 100%;
+      height: 100%;
+      swiper-slide {
+        text-align: center;
+        a {
+          width: 100%;
+          height: 100%;
+          display: flex;
+        }
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      }
+    }
+
+    .hot {
+      h2 {
+        color: var(--color-background-light);
+        padding: 20px 0;
+      }
+      .hotGameGridBox {
+        display: grid;
+        grid-auto-rows: 300px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        .game-item {
+          position: relative;
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+
+            object-fit: cover;
+            top: 0;
+            left: -8px;
+            background-image: url(../assets/huore.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: 0 0;
+          }
+          a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            background-color: var(--color-background1);
+            overflow: hidden;
+          }
+          .nameBox {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--color-background-light);
+          }
+        }
+      }
+    }
+
+    .newGame {
+      h2 {
+        color: var(--color-background-light);
+        padding: 20px 0;
+      }
+      .newGameGridBox {
+        display: grid;
+        grid-auto-rows: 200px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        .game-item {
+          position: relative;
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+
+            object-fit: cover;
+            top: 0;
+            left: -8px;
+            background-image: url(../assets/xin.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: 0 0;
+          }
+          a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            background-color: var(--color-background1);
+          }
+
+          .nameBox {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--color-background-light);
+          }
+        }
+      }
+    }
+
+    .threeD {
+      h2 {
+        padding: 20px 0;
+        color: var(--color-background-light);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .more-link {
+          cursor: pointer;
+        }
+      }
+      .threeDGameGridBox {
+        display: grid;
+        grid-auto-rows: 300px;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+        .game-item {
+          background-color: var(--color-background1);
+          border-radius: 8px;
+          overflow: hidden;
+          a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    .Adventure {
+      h2 {
+        padding: 20px 0;
+        color: var(--color-background-light);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .more-link {
+          cursor: pointer;
+        }
+      }
+      .AdventureGameGridBox {
+        display: grid;
+        grid-auto-rows: 300px;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+        .game-item {
+          background-color: var(--color-background1);
+          border-radius: 8px;
+          overflow: hidden;
+          a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
+.indexPage.loadingAnimation {
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      var(--color-background-light1),
+      var(--color-background-dark)
+    ); /* 背景渐变色 */
+  }
+  &::after {
+    content: "loading...";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: var(--color-background-light);
+    font-size: 50px;
+    font-weight: bold;
+    /* 字体抖动动画 */
+    animation: shake 1.5s linear infinite, fadeIn 1.5s linear infinite;
+  }
+}
+
+.site-info-area {
+  max-width: 1500px;
+  margin: 20px auto;
+  background: var(--color-background-light);
+  border-radius: 15px;
+  padding: 15px;
+  line-height: 1.5;
+}
+
+.shengming {
+  max-width: 1500px;
+  margin: 20px auto;
+  background: var(--color-background-light);
+  border-radius: 15px;
+  padding: 15px;
+  line-height: 1.5;
+
+  .policy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      color: initial;
+    }
+  }
+}

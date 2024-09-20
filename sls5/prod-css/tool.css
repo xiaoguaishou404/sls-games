@@ -1,0 +1,85 @@
+.textLink {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--color-background-hover);
+  transition: 0.4s;
+  padding: 3px;
+}
+.textLink:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+.textBlue {
+  background: linear-gradient(to bottom, #0178cd, #49a9e4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.verticalShadow {
+  box-shadow: 0px 150px 50px -100px rgba(0, 0, 0, 1) inset,
+    0px -150px 50px -100px rgba(0, 0, 0, 1) inset;
+}
+
+/* 2. CSS 部分 */
+img.lazy {
+  filter: blur(10px);
+  transition: filter 0.3s;
+  width: 100%; /* 确保图片大小 */
+  height: auto;
+}
+
+img.lazy.loaded {
+  filter: blur(0);
+}
+
+@keyframes myscale {
+  0% {
+    translate: 0 0;
+  }
+
+  20% {
+    translate: 50% 50%;
+  }
+
+  40% {
+    translate: -50% 50%;
+  }
+
+  60% {
+    translate: -50% -50%;
+  }
+
+  80% {
+    translate: 50% -50%;
+  }
+
+  100% {
+    translate: 50% 50%;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes shake {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -70%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,194 @@
+@import url("./main.css");
+@import "play_mobile.css";
+
+.playPage {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.playPage .gameBanner {
+    position: relative;
+    height: 600px;
+  }
+
+.playPage .gameBanner .bgdimg {
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      /* 毛玻璃效果 */
+      filter: blur(25px);
+    }
+
+.playPage .gameBanner .gameBannerbox {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 30px;
+      padding: 50px 0;
+    }
+
+.playPage .gameBanner .gameBannerbox .mainImg {
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        transform: scale(1);
+        transition: 0.3s;
+        box-shadow: 2px 2px 4px 0 rgba(255, 255, 255, 0.3);
+      }
+
+.playPage .gameBanner .gameBannerbox .gameTitle {
+        color: var(--color-background-light);
+        /* 省略号 */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+        text-align: center;
+        height: 60px;
+        
+      }
+
+.playPage .gameBanner .gameBannerbox .playButton {
+        width: 80%;
+        max-width: 300px;
+        cursor: pointer;
+        padding:  20px;
+        background-color: var(--color-background1);
+        color: var(--color-background-light);
+        border-radius: calc(infinity * 1px);
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+.playPage .gameBanner .gameBannerbox .playButton:hover {
+          background-color: var(--color-background-light);
+          color: var(--color-background1);
+        }
+
+.playPage .gameBanner .gameBannerbox .playButton img{
+          width: 30px;
+          height: 30px;
+          -o-object-fit: cover;
+             object-fit: cover;
+
+        }
+
+.playPage .gameBanner .gameBannerbox .footer {
+        opacity: 0.8;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+.playPage .gameBanner .gameBannerbox .footer .gameMsg {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+        }
+
+.playPage .gameBanner .gameBannerbox .footer .gameMsg img {
+            width: 30px;
+          }
+
+.playPage .gameBanner .gameBannerbox .footer .gameMsg .gameMsgNum{
+            color: var(--color-background-light);
+            height: 20px;
+          }
+
+.playPage .description {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    height: 140px;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    border-radius: 5px;
+    padding: 10px 20px;
+    line-height: 2rem;
+    color: var(--color-background-light);
+  }
+
+.playPage .SimilarGame {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    display: grid;
+    grid-auto-rows: 100px;
+    grid-template-columns: repeat(auto-fill, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+.playPage .SimilarGame a{
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+
+.playPage .SimilarGame .gameItem img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+           object-fit: cover;
+        border-radius: 10px;
+      }
+
+.playPage .SimilarGame .gameItem img:hover {
+          transform: scale(1.1);
+        }
+
+.playPage .HomeButton {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    border-radius: 0 0 100% 0;
+    color: var(--color-background-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.playPage .HomeButton span {
+      transform: translate(-10px, -10px);
+    }
+
+.playPage .HomeButton {
+    /* 禁止复制 */
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+  }
+
+.playPage .HomeButton:hover {
+      background-color: var(--color-background-dark);
+      color: white;
+    }
+
+.playPage .HomeButton img {
+      width: 40px;
+      height: 40px;
+      -o-object-fit: cover;
+         object-fit: cover;
+      transform: translate(-5px, -5px);
+    }

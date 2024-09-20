@@ -1,0 +1,105 @@
+
+  @media screen and (max-width: 1200px) {
+      #indexPage .threeDGameGridBox .game-item,#indexPage .AdventureGameGridBox .game-item {
+        width: calc(100% / 4);
+      }
+        #indexPage .threeDGameGridBox .game-item:nth-last-child(-n + 4) {
+          display: none;
+        }
+        #indexPage .AdventureGameGridBox .game-item:nth-last-child(-n + 4) {
+          display: none;
+        }
+  }
+@media screen and (max-width: 800px) {
+      #indexPage .threeDGameGridBox .game-item,#indexPage .AdventureGameGridBox .game-item {
+        width: calc(100% / 3);
+      }
+        #indexPage .threeDGameGridBox .game-item img,#indexPage .AdventureGameGridBox .game-item img {
+          border-radius: 10px;
+          border: 4px solid var(--color-background-light2);
+        }
+        #indexPage .threeDGameGridBox .game-item:nth-last-child(-n + 6) {
+          display: none;
+        }
+        #indexPage .AdventureGameGridBox .game-item:nth-last-child(-n + 6) {
+          display: none;
+        }
+  }
+@media screen and (max-width: 500px) {
+      #indexPage .threeDGameGridBox .game-item,#indexPage .AdventureGameGridBox .game-item {
+        width: calc(100% / 3);
+      }
+        #indexPage .threeDGameGridBox .game-item:nth-last-child(-n + 9) {
+          display: none;
+        }
+        #indexPage .AdventureGameGridBox .game-item:nth-last-child(-n + 9) {
+          display: none;
+        }
+  }
+/* 核心处理 */
+@media screen and (max-width: 1000px) {
+    #indexPage .hotGameGridBox {
+      display: grid;
+      grid-auto-rows: 200px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+      #indexPage .hotGameGridBox .game-item:nth-child(1) {
+        grid-row: span 2;
+        grid-column: span 1;
+      }
+
+    #indexPage .newGameGridBox {
+      display: grid;
+      grid-auto-rows: 200px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+      #indexPage .newGameGridBox .game-item:nth-child(5) {
+        grid-row: span 1;
+        grid-column: span 2;
+      }
+      #indexPage .newGameGridBox .game-item:nth-child(6) {
+        grid-row: span 1;
+        grid-column: span 2;
+      }
+
+    @media screen and (max-width: 500px) {
+      #indexPage .font1 {
+        font-size: 1rem;
+        font-weight: 300;
+      }
+      #indexPage .font2 {
+        font-size: 0.6rem;
+        font-weight: 400;
+      }
+      #indexPage .font3 {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+      #indexPage .font4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+      #indexPage .font5 {
+        font-size: 4rem;
+        font-weight: 800;
+      }
+      #indexPage .newGameGridBox {
+        display: flex;
+        overflow: auto;
+      }
+        #indexPage .newGameGridBox::-webkit-scrollbar {
+          display: none;
+        }
+        #indexPage .newGameGridBox .game-item {
+          flex-shrink: 0;
+          width: 100px;
+          height: 100px;
+        }
+      #indexPage .site-info-area {
+        margin: 20px;
+      }
+      #indexPage .shengming {
+        margin: 20px;
+      }
+    }
+  }

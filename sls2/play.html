@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=375, user-scalable=no" />
+    <title>_title_</title>
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="prod-css/play.css">
+
+</head>
+
+<body>
+    <div class="playPage" id="playPageId">
+        <div class="introduce">
+            <div class="gameBanner" onclick="gotoPlayGame()">
+                <img class="bgdimg gameBannerImg" src="" alt="">
+
+                <div class="floatTier">
+                    <div class="topPlayContent">
+                        <img src="./assets/kaishi.png" alt="" srcset="">
+                        <div class="font5 ">Play Now</div>
+                    </div>
+
+                    <div class="footerContent">
+
+                        <div class="row1">
+                            <img class="gameBannerImg " src="" alt="">
+                            <div class="title font3"></div>
+                        </div>
+                        <div class="row2">
+                            <div class="gameMsg"><img src="./assets/dianzan.png" alt="">
+                                <div class="font08 gameMsgNum"></div>
+                            </div>
+                            <div class="gameMsg"><img src="./assets/chapin.png" alt="">
+                                <div class="font08 gameMsgNum"></div>
+                            </div>
+                            <div class="gameMsg"><img src="./assets/xiazhai.png" alt="">
+                                <div class="font08 gameMsgNum"></div>
+                            </div>
+                            <div class="gameMsg"><img src="./assets/fenxiang.png" alt="">
+                                <div class="font08 gameMsgNum"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="message">
+                <div class="bgdContent">
+                    <div class="title font5"></div>
+                    <div class="category font1"></div>
+                    <div class="tags font3"></div>
+                    <div class="pubDate font3"></div>
+                </div>
+
+            </div>
+        </div>
+        <!-- <div onclick="gotoPlayGame()" class="playButton font5">PLAY</div> -->
+        <div class="description font1">
+
+        </div>
+        <div class="SimilarGame">
+
+        </div>
+        <a href="./">
+            <div class="HomeButton font1"><img src="./assets/fanhui.png" alt="" srcset=""></div>
+        </a>
+
+    </div>
+
+</body>
+<script type="module" src="assets/js/business.js"></script>
+
+<script type="module">
+    import { getGamesList, getGamesListApi } from "./assets/js/business.js";
+    document.addEventListener("DOMContentLoaded", async (event) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const guid = urlParams.get("guid");
+        console.log(guid);
+        let allGameList = await getGamesListApi({ format: 0, num: 1, page: 1, platform: 1, name: guid });
+
+
+         window.gamedata = allGameList[0];
+        console.log(gamedata);
+        Array.prototype.forEach.call(document.getElementsByClassName("gameBannerImg"), (item) => {
+            item.src = gamedata.thumb;
+        });
+
+        Array.prototype.forEach.call(document.getElementsByClassName("title"), (item) => {
+            item.innerHTML = gamedata.title;
+        });
+        document.getElementsByClassName("category")[0].innerHTML = gamedata.category;
+        document.getElementsByClassName("tags")[0].innerHTML = gamedata.tags;
+        // document.getElementsByClassName("pubDate")[0].innerHTML = formatDate(gamedata.pubDate);
+        document.getElementsByClassName("description")[0].innerHTML = gamedata.description;
+
+        let SimilarGameList = await getGamesListApi({ format: 0, num: 30, page: 1, platform: 1, category: 3 });
+
+        SimilarGameList.forEach((item) => {
+            document.getElementsByClassName("SimilarGame")[0].innerHTML +=
+                `
+        <a href="play.html?guid=${item.title}">
+            <div class="gameItem"> <img src="${item.thumb}" alt=""></div>
+        </a>
+       
+       `
+        })
+// gameMsg
+Array.from( document.getElementsByClassName("gameMsgNum"))[0].innerHTML = Math.floor(Math.random() * 1000)
+Array.from( document.getElementsByClassName("gameMsgNum"))[1].innerHTML = Math.floor(Math.random() * 100)
+Array.from( document.getElementsByClassName("gameMsgNum"))[2].innerHTML = Math.floor(Math.random() * 2000)
+Array.from( document.getElementsByClassName("gameMsgNum"))[3].innerHTML = Math.floor(Math.random() * 3000)
+
+
+
+    });
+    window.gotoPlayGame = function () {
+        window.location.href = gamedata.url;
+
+    }
+    function formatDate(dateString) {
+        // 将日期字符串解析为Date对象
+        const date = new Date(dateString);
+
+        // 获取各个时间部分
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const seconds = String(date.getSeconds()).padStart(2, '0');
+
+        // 格式化为YYYY-MM-DD HH:mm:ss
+        const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
+        return formattedDate;
+    }
+</script>
+
+<!-- gtag -->
+
+</html>

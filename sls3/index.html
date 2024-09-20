@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=375, user-scalable=no" />
+    <title>_title_</title>
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="prod-css/index.css">
+    <script src="./assets/js/swiper-element-bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="indexPage loadingAnimation" id="indexPage">
+
+        <header class="header">
+            <div class="top-bar">
+                <div class="logo">
+                    <img src="logo.png" alt="" srcset="">
+                </div>
+                <a href="search.html" class="search-bar">
+                    <div class="icon">🔍</div>
+
+                </a>
+
+                <div class="menu-icons" onclick="switchMenu()">
+                    <img class="icon" src="./assets/fenlei.png" alt="" srcset="">
+                </div>
+            </div>
+            <div class="menuFloatContent hidden">
+            </div>
+        </header>
+
+
+
+        <main class="main-content">
+
+            <swiper-container class="gameSwiper" navigation="true" pagination="true" pagination-clickable="true" space-between="10"
+                slides-per-view="3">
+            </swiper-container>
+
+
+            <section class="hot font2">
+                <h2>HOT</h2>
+                <div class="hotGameGridBox">
+
+
+                </div>
+            </section>
+
+            <section class="newGame font2">
+                <h2>NEW</h2>
+                <div class="newGameGridBox">
+
+                </div>
+            </section>
+
+            <section class="threeD font2">
+                <h2>
+                    <span>threeD</span>
+                    <a href="search.html?category=3D" class="more-link">more &gt;</a>
+                </h2>
+                <div class="threeDGameGridBox">
+
+                </div>
+            </section>
+
+            <section class="Adventure font2">
+                <h2>
+                    <span>Adventure</span>
+                    <a href="search.html?category=Adventure" class="more-link"></a>
+                </h2>
+                <div class="AdventureGameGridBox">
+                </div>
+            </section>
+
+
+
+
+        </main>
+
+        <div class="site-info-area font1">
+            <h2 style="text-align: center">
+              If you enjoy our site, learn more about GAME!
+            </h2>
+            
+        
+            <p>
+              Discover a world of exciting challenges online at GAME, the ultimate
+              destination for amazing games designed for girls, boys, and kids with
+              diverse interests! Our website offers a vast collection of free games,
+              accessible on mobile phones, tablets, computers, and laptops. With a
+              variety of fun categories, you can enjoy your favorite characters in
+              games like motorcycle, adventure, spa, action, makeover, and dress-up,
+              suitable for both boys and girls. Popular cartoon categories include
+              Princesses, Ben 10, Batman, Superheroes, Pokemon, Fantastic Four, Hulk,
+              Thor, Little Mermaid, Moana, and Frozen.
+              10,Batman,Superheroes,Pokemon,Fantastic Four,Hulk,Thor,Little
+              Mermaid,Moana or Frozen!
+            </p>
+        
+            
+            <p>
+              Experience cutting-edge technology with HTML5 games, ensuring seamless
+              play on mobile devices. Just connect to the internet, visit GAME via
+              Google, and start playing with friends. Explore our new 2 Player
+              category, along with 3 Player and even 4 Player games for children.
+              Challenge yourself with adventure, chess, puzzle, shooting, and racing
+              games, featuring fast cars, 3D vehicles, motorcycles, helicopters,
+              airplanes, and F1 cars. Dive into endless fun and adventure on GAME!
+            </p>
+        
+        
+          </div>
+          <div class="shengming font1">
+            <h3 style="text-align: center">About Us</h3>
+            <div>
+              User Responsibility: Users shall bear full responsibility for the
+              content they provide in accordance with the law, and the platform shall
+              not assume any responsibility. The content uploaded by the user only
+              represents the author's viewpoint and does not represent the platform's
+              viewpoint. The platform has the right to modify and interpret this
+              statement. If there are any changes, the user will be notified in an
+              appropriate manner. The user's continued use of the game service is
+              deemed to have accepted the modified declaration
+            </div>
+            <div class="policy">
+              <a href="./PrivacyPolicy.html">Privacy Policy</a>
+              <span> &nbsp; | &nbsp;</span>
+              <a href="./TermsofService.html">Terms-of Service</a>
+            </div>
+          </div>
+
+
+
+
+
+    </div>
+</body>
+<script type="module">
+    import { getGamesListApi } from "./assets/js/business.js";
+    let gamesListIndex = 0
+    let GameList = await getGamesListApi({ num: 20 });
+    GameList.slice(0, gamesListIndex += 10).forEach((item) => {
+        const swiperSlide = document.createElement('swiper-slide');
+        swiperSlide.innerHTML = `
+        <a href="play.html?title=${item.title}">
+            <img src="${item.thumb}" alt="">
+        </a>`;
+        document.querySelector('.gameSwiper').appendChild(swiperSlide);
+    });
+
+    let hotGameList = GameList.slice(gamesListIndex, gamesListIndex += 3)
+    hotGameList.forEach((item) => {
+        const hotGameItem = document.createElement('div');
+        hotGameItem.className = 'game-item';
+        hotGameItem.innerHTML = `
+            <a href="play.html?title=${item.title}">
+                <img src="${item.thumb}" alt="">
+                <div class="font3 nameBox">${item.title}</div>
+            </a>
+      `;
+
+        document.querySelector('.hotGameGridBox').appendChild(hotGameItem);
+
+
+    })
+
+    let newGameList = GameList.slice(gamesListIndex, gamesListIndex += 6)
+    newGameList.forEach((item) => {
+        const newGameItem = document.createElement('div');
+        newGameItem.className = 'game-item';
+        newGameItem.innerHTML = `
+            <a href="play.html?title=${item.title}">
+                <img src="${item.thumb}" alt="">
+                 <div class="font3 nameBox">${item.title}</div>
+            </a>
+            `;
+        document.querySelector('.newGameGridBox').appendChild(newGameItem);
+    })
+
+
+    let threeDGameList = await getGamesListApi({ num: 12, category: 3 });
+    threeDGameList.forEach((item) => {
+        const threeDGameItem = document.createElement('div');
+        threeDGameItem.className = 'game-item';
+        threeDGameItem.innerHTML = `
+            <a href="play.html?title=${item.title}">
+                <img src="${item.thumb}" alt="">
+            </a>
+            `;
+
+
+        document.querySelector('.threeDGameGridBox').appendChild(threeDGameItem);
+    })
+
+    // 关闭首评加载动画的时机
+    document.querySelector('.indexPage').classList.toggle('loadingAnimation', false)
+    
+
+    let AdventureGameList = await getGamesListApi({ num: 12, category: 4 });
+    AdventureGameList.forEach((item) => {
+        const AdventureGameItem = document.createElement('div');
+        AdventureGameItem.className = 'game-item';
+        AdventureGameItem.innerHTML = `
+            <a href="play.html?title=${item.title}">
+                <img src="${item.thumb}" alt="">
+            </a>
+            `;
+
+
+        document.querySelector('.AdventureGameGridBox').appendChild(AdventureGameItem);
+    })
+    import("./assets/js/business.js").then((res) => {
+        let menuFloatContent = document.querySelector('.menuFloatContent')
+        res.getGamesListCategory
+            .forEach((item) => {
+                let div = document.createElement('div')
+                div.className = 'categoryItem font1'
+                div.innerHTML = `
+            <a href="search.html?category=${item}">${item}</a>
+            `
+                menuFloatContent.appendChild(div)
+            })
+    })
+
+    window.switchMenu = function () {
+        document.querySelector('.menuFloatContent').classList.toggle('hidden')
+
+    }
+
+
+
+
+
+
+</script>
+
+<!-- gtag -->
+
+</html>

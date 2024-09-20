@@ -1,0 +1,72 @@
+@media screen and (max-width: 500px) {
+  .font1 {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+  .font2 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .font3 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .font4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .font5 {
+    font-size: 4rem;
+    font-weight: 800;
+  }
+  #playPageId {
+    .introduce {
+      margin: initial;
+      flex-wrap: nowrap;
+      overflow: auto;
+      width: 100vw;
+      height: 100vw;
+      gap: 0px;
+      justify-content: initial;
+
+      .gameBanner {
+        flex-shrink: 0;
+        padding: 0 10px;
+        width: 100%;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .message {
+      padding: 0 10px;
+      width: 100%;
+      max-width: 1000px;
+      .bgdContent {
+        justify-content: space-evenly;
+
+
+        gap: 10px;
+        .title {
+          text-align: center;
+        }
+        .category {
+          font-size: 1.8rem;
+        }
+        .pubDate {
+          max-width: 90%;
+          overflow: initial;
+          text-overflow: initial;
+          white-space: wrap;
+          text-align: center;
+        }
+      }
+    }
+    .SimilarGame {
+      grid-auto-rows: initial;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+  }
+}

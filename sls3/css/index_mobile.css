@@ -1,0 +1,70 @@
+#indexPage {
+  @media screen and (max-width: 1000px) {
+    .hotGameGridBox {
+      display: grid;
+      grid-auto-rows: 200px;
+      grid-template-columns: repeat(2, 1fr);
+      .game-item:nth-child(1) {
+        grid-row: span 2;
+        grid-column: span 1;
+      }
+    }
+
+    .newGameGridBox {
+      display: grid;
+      grid-auto-rows: 200px;
+      grid-template-columns: repeat(2, 1fr);
+      .game-item:nth-child(5),
+      .game-item:nth-child(6) {
+        grid-row: span 1;
+        grid-column: span 2;
+      }
+    }
+    .threeDGameGridBox {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 200px;
+    }
+    .AdventureGameGridBox {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 200px;
+    }
+    
+
+    @media screen and (max-width: 500px) {
+      .font1 {
+        font-size: 1rem;
+        font-weight: 300;
+      }
+      .font2 {
+        font-size: 0.6rem;
+        font-weight: 400;
+      }
+      .font3 {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+      .font4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+      .font5 {
+        font-size: 4rem;
+        font-weight: 800;
+      }
+      .threeDGameGridBox {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 100px;
+      }
+      .AdventureGameGridBox {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 100px;
+      }
+      .site-info-area {
+        margin: 20px;
+      }
+      .shengming {
+        margin: 20px;
+      }
+    }
+  }
+}

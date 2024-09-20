@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=375, user-scalable=no" />
+    <title>_title_</title>
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="prod-css/search.css">
+</head>
+
+<body>
+    <div class="searchPage" id="searchPage">
+
+        <header class="header">
+            <div class="top-bar">
+                <a href="./" class="logo">
+                    <img src="logo.png" alt="" srcset="">
+                </a>
+
+                <input autofocus id="search_name" class="font2" type="text" placeholder="Search Game" oninput="search_game()" />
+                <div class="close-icons" onclick="closeSearchFloatContent()">
+                    <img class="icon" src="./assets/Close.svg" alt="" srcset="">
+                </div>
+            </div>
+        </header>
+        <h2 class="category font3"></h2>
+        <div class="searchFloatContent">
+        </div>
+
+    </div>
+</body>
+<script type="module">
+    import { getGamesListApi, getGamesListCategory } from "./assets/js/business.js";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("category")) {
+        document.querySelector('.category').innerHTML = `CATEGORY: ${urlParams.get("category")}`;
+    }
+
+    let category = getGamesListCategory.indexOf(urlParams.get("category")) + 1;
+
+
+    window.search_game = async function () {
+        let searchValue = search_name.value.trim();
+        document.querySelector('.searchFloatContent').innerHTML = `
+            <div class="loading">
+                <img  src="./assets/loading.svg" alt="">
+            </div>`;
+
+            let filterGameList
+        if (urlParams.get("category")) {
+             filterGameList = await getGamesListApi(Object.assign({ num: 100, name: searchValue }, { category }));
+        } else {
+             filterGameList = await getGamesListApi({ num: 100, name: searchValue });
+        }
+
+        if (filterGameList.length != 0) {
+            document.querySelector('.searchFloatContent').innerHTML = "";
+            filterGameList.forEach((item) => {
+                var div = document.createElement("div");
+                div.className = "search_gameItem";
+                div.onclick = function () {
+                    window.location.href = `./play.html?title=${item.title}`
+                }
+                div.innerHTML = ` 
+                <img  src="${item.thumb}" alt="" />
+                <div class="gameTitle font08">${item.title}</div>
+              `;
+                document.getElementsByClassName("searchFloatContent")[0].appendChild(div);
+            });
+        } else {
+            console.log("nodata");
+            document.querySelector('.searchFloatContent').innerHTML = `
+                <div class="nodata font3">
+                  <h1>No related content found.</h1>
+                  <h4>Try searching for something else or playing one of these awesome games.</h4>
+                </div>
+          `;
+        }
+    }
+    search_game()
+
+    window.closeSearchFloatContent = function () {
+        search_name.value = "";
+        search_game()
+    }
+
+
+
+
+
+
+</script>
+
+<!-- gtag -->
+
+</html>

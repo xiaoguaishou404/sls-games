@@ -1,0 +1,72 @@
+
+  @media screen and (max-width: 1000px) {
+    #indexPage .hotGameGridBox {
+      display: grid;
+      grid-auto-rows: 200px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+      #indexPage .hotGameGridBox .game-item:nth-child(1) {
+        grid-row: span 2;
+        grid-column: span 1;
+      }
+
+    #indexPage .newGameGridBox {
+      display: grid;
+      grid-auto-rows: 200px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+      #indexPage .newGameGridBox .game-item:nth-child(5) {
+        grid-row: span 1;
+        grid-column: span 2;
+      }
+      #indexPage .newGameGridBox .game-item:nth-child(6) {
+        grid-row: span 1;
+        grid-column: span 2;
+      }
+    #indexPage .threeDGameGridBox {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 200px;
+    }
+    #indexPage .AdventureGameGridBox {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 200px;
+    }
+    
+
+    @media screen and (max-width: 500px) {
+      #indexPage .font1 {
+        font-size: 1rem;
+        font-weight: 300;
+      }
+      #indexPage .font2 {
+        font-size: 0.6rem;
+        font-weight: 400;
+      }
+      #indexPage .font3 {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+      #indexPage .font4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+      #indexPage .font5 {
+        font-size: 4rem;
+        font-weight: 800;
+      }
+      #indexPage .threeDGameGridBox {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 100px;
+      }
+      #indexPage .AdventureGameGridBox {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 100px;
+      }
+      #indexPage .site-info-area {
+        margin: 20px;
+      }
+      #indexPage .shengming {
+        margin: 20px;
+      }
+    }
+  }

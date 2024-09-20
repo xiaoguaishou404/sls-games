@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=375, user-scalable=no" />
+    <title>_title_</title>
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="prod-css/play.css" />
+</head>
+
+<body>
+    <div class="playPage" id="playPage">
+        <div class="gameBanner" onclick="gotoPlayGame()">
+            <img class="bgdimg gameImgUrl" src="" alt="" />
+
+            <div class="gameBannerbox">
+                <img class="mainImg gameImgUrl" src="./assets/placeholder.svg" alt="" srcset="" />
+                <div class="gameTitle font4"></div>
+                <div class="playButton font2" onclick="gotoPlayGame()">
+                    <img src="./assets/kaishi.png" alt="">
+                    Play Now</div>
+                <div class="footer">
+                    <div class="gameMsg">
+                        <img src="./assets/9.png" alt="" />
+                        <div class="font08 gameMsgNum"></div>
+                    </div>
+                    <div class="gameMsg">
+                        <img src="./assets/10.png" alt="" />
+                        <div class="font08 gameMsgNum"></div>
+                    </div>
+                    <div class="gameMsg">
+                        <img src="./assets/11.png" alt="" />
+                        <div class="font08 gameMsgNum"></div>
+                    </div>
+                    <div class="gameMsg">
+                        <img src="./assets/12.png" alt="" />
+                        <div class="font08 gameMsgNum"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="description font2"></div>
+        <div class="SimilarGame"></div>
+        <a href="./">
+            <div class="HomeButton font1">
+                <img src="./assets/fanhui.png" alt="" srcset="" />
+            </div>
+        </a>
+    </div>
+</body>
+<script type="module">
+    import { getGamesListApi, getGamesListCategory } from "./assets/js/business.js";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const title = urlParams.get("title");
+    let allGameList = await getGamesListApi({ name: title });
+    window.gamedata = allGameList[0];
+
+    Array.prototype.forEach.call(
+        document.getElementsByClassName("gameImgUrl"),
+        (item) => {
+            item.src = gamedata.thumb;
+        }
+    );
+
+    Array.prototype.forEach.call(
+        document.getElementsByClassName("gameTitle"),
+        (item) => {
+            item.innerHTML = gamedata.title;
+        }
+    );
+
+    Array.from(document.getElementsByClassName("gameMsgNum"))[0].innerHTML = Math.floor(Math.random() * 1000)
+    Array.from(document.getElementsByClassName("gameMsgNum"))[1].innerHTML = Math.floor(Math.random() * 100)
+    Array.from(document.getElementsByClassName("gameMsgNum"))[2].innerHTML = Math.floor(Math.random() * 2000)
+    Array.from(document.getElementsByClassName("gameMsgNum"))[3].innerHTML = Math.floor(Math.random() * 3000)
+
+    document.querySelector(".description").innerHTML = gamedata.description;
+
+    let SimilarGameList = await getGamesListApi({ num: 30, category: getGamesListCategory.indexOf(gamedata.category) });
+
+    SimilarGameList.forEach((item) => {
+        document.querySelector(".SimilarGame").innerHTML += `
+            <a href="play.html?title=${item.title}">
+                <div class="gameItem"> <img src="${item.thumb}" alt=""></div>
+            </a>`
+    })
+
+
+    window.gotoPlayGame = function () {
+        window.location.href = gamedata.url;
+    }
+
+</script>
+
+<!-- gtag -->
+
+</html>

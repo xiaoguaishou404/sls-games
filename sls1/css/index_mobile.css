@@ -1,0 +1,62 @@
+@media screen and (max-width: 500px) {
+  .font1 {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  .font2 {
+    font-size: 0.6rem;
+    font-weight: 400;
+  }
+  .font3 {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .font4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .font5 {
+    font-size: 4rem;
+    font-weight: 800;
+  }
+  #indexPage {
+    .header {
+      height: 60px;
+      .headeContent {
+        padding: 14px;
+        #search_name {
+          padding: 0 20px;
+        }
+      }
+    }
+
+    .searchFloatContent {
+      padding: 0 10px;
+      grid-auto-rows: calc(calc(calc(100vw - 50px) /4) + 30px);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      .search_gameItem {
+        .gameTitle {
+          width: 20vw;
+        }
+      }
+    }
+
+
+
+
+    
+    #gridContainer {
+      padding-top: 80px;
+      grid-auto-rows: 100px;
+      grid-template-columns: repeat(auto-fill, 100px);
+    }
+    .site-info-area {
+      margin: 20px;
+    }
+    .shengming {
+      margin: 20px;
+    }
+  }
+}
+

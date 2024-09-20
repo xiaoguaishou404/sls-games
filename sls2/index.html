@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=375, user-scalable=no" />
+  <title>_title_</title>
+  <link rel="icon" href="logo.png" />
+  <link rel="stylesheet" href="prod-css/index.css">
+</head>
+
+<body id="indexPage">
+  <div class="header">
+    <div class="headeContent">
+      <a href="./" class="logo">
+        <img src="logo.png" />
+      </a>
+      <div class="searchContent">
+        <input id="search_name" type="text" placeholder="Search Game" oninput="search_game()" onfocus="closeMenu()" />
+        <img class="closeImg" src="./assets/Menu.svg" onclick="closeSearchFloatContent()" />
+      </div>
+      <div hidden class="menu">
+        <img class="Menu" src="./assets/Menu.svg" onclick="openMenu()" />
+        <img class="Close" src="./assets/Close.svg" onclick="openMenu()" />
+      </div>
+
+      <img onclick="scrollHot()" class="hot" src="./assets/huore.png" alt="">
+    </div>
+    <div class="categoryList">
+      <div class="centerContent" onclick="changeCategory(event)">
+        <div class="categoryItem" data-category="0" class="active"><img src="./assets/maoxian.png" alt="">All</div>
+        <div class="categoryItem" data-category="1"><img src="./assets/jingsu.png" alt=""> .IO</div>
+        <div class="categoryItem" data-category="2"><img src="./assets/maoxian.png" alt="">2Player</div>
+        <div class="categoryItem" data-category="3"><img src="./assets/yundong.png" alt="">3D</div>
+        <div class="categoryItem" data-category="4"><img src="./assets/maoxian.png" alt="">Adventure</div>
+        <div class="categoryItem" data-category="5"> <img src="./assets/jingsu.png" alt=""> Arcade</div>
+        <div class="categoryItem" data-category="6"> <img src="./assets/maoxian.png" alt=""> Bejeweled</div>
+        <div class="categoryItem" data-category="7"> <img src="./assets/sheji.png" alt=""> Boys</div>
+        <div class="categoryItem" data-category="8"> <img src="./assets/yundong.png" alt=""> Clicker</div>
+        <div class="categoryItem" data-category="9"> <img src="./assets/sheji.png" alt=""> Cooking</div>
+        <div class="categoryItem" data-category="10"> <img src="./assets/jingsu.png" alt=""> Girls</div>
+        <div class="categoryItem" data-category="11"> <img src="./assets/maoxian.png" alt=""> Hypercasual</div>
+        <div class="categoryItem" data-category="12"> <img src="./assets/yundong.png" alt=""> Multiplayer</div>
+        <div class="categoryItem" data-category="13"> <img src="./assets/sheji.png" alt=""> Puzzle</div>
+        <div class="categoryItem" data-category="14"> <img src="./assets/jingsu.png" alt=""> Racing</div>
+        <div class="categoryItem" data-category="15"> <img src="./assets/maoxian.png" alt=""> Shooting</div>
+        <div class="categoryItem" data-category="16"> <img src="./assets/yundong.png" alt=""> Soccer</div>
+        <div class="categoryItem" data-category="17"> <img src="./assets/jingsu.png" alt=""> Sports</div>
+        <div class="categoryItem" data-category="18"> <img src="./assets/maoxian.png" alt=""> Stickman</div>
+        <div class="categoryItem" data-category="19"> <img src="./assets/sheji.png" alt=""> Baby Hazel</div>
+      </div>
+
+    </div>
+    <div class="menuFloatContent">
+    </div>
+    <div class="searchFloatContent">
+    </div>
+  </div>
+
+
+  <div id="gridContainer">
+  </div>
+
+  <div class="newGameListContent">
+    <div class="newGameListheader">new Game</div>
+    <div class="newGameList"></div>
+  </div>
+
+  <div id="gridContainer2">
+  </div>
+  <div class="site-info-area font1">
+    <h2 style="text-align: center">
+      If you enjoy our site, learn more about GAME!
+    </h2>
+    <p>
+      xxxxx
+    </p>
+  </div>
+  <div class="shengming font1">
+    <h3 style="text-align: center">About Us</h3>
+    <div>
+      User Responsibility: Users shall bear full responsibility for the
+      content they provide in accordance with the law, and the platform shall
+      not assume any responsibility. The content uploaded by the user only
+      represents the author's viewpoint and does not represent the platform's
+      viewpoint. The platform has the right to modify and interpret this
+      statement. If there are any changes, the user will be notified in an
+      appropriate manner. The user's continued use of the game service is
+      deemed to have accepted the modified declaration
+    </div>
+    <div class="policy">
+      <a href="./PrivacyPolicy.html">Privacy Policy</a>
+      <span> &nbsp; | &nbsp;</span>
+      <a href="./TermsofService.html">Terms-of Service</a>
+    </div>
+  </div>
+</body>
+<script>
+  function changeCategory(event) {
+    const category = event.target.getAttribute("data-category");
+    if (category) {
+      location.href = location.href.split("?")[0] + "?category=" + category;
+    }
+
+  }
+  function scrollHot(){
+  let randomList = Array.from(document.querySelectorAll('.unit-2')).sort((a, b) => {
+      return Math.random() - 0.5;
+    })
+    const targetElement = randomList[0];
+    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+
+</script>
+<script type="module" src="assets/js/business.js"></script>
+
+<script type="module">
+  import { imgLazyLoad } from "./assets/js/tools.js";
+  import { getGamesList, getGamesListApi } from "./assets/js/business.js";
+  const category = new URLSearchParams(window.location.search).get("category") || 0;
+
+  let allGameList = await getGamesListApi({ format: 0, num: 500, page: 1, platform: 1, links: 1, category });
+  console.log(allGameList);
+
+  const gameList = allGameList
+
+  function gridFill(gameList) {
+    let outOfOrderList = gameList.sort(() => Math.random() - 0.5);
+    let data = outOfOrderList.slice(0, 20);
+    let randomKeyList = [...new Array(data.length).keys()].sort(
+      () => Math.random() - 0.5
+    );
+    for (const [key, num] of Object.entries({
+      "unit-2": 5,
+      // "unit3-row": 1,
+      // "unit3-column": 1,
+    })) {
+      randomKeyList.splice(0, num).forEach((item, index) => {
+        data[item].class = key;
+      });
+    }
+    data.forEach((item) => {
+      if (!item.class) {
+        item.class = "unit-1";
+      }
+    });
+
+    function creatboxItem(item) {
+      let div = document.createElement("div");
+      div.innerHTML = `
+                <a href="play.html?guid=${item.title}">
+                <img class="lazy" data-src="${item.thumb}" src="assets/placeholder.svg" alt="" />
+                <div class="gameTitle font1">${item.title}</div>
+                </a>
+          `;
+      return div
+    }
+
+    data.forEach((item, index) => {
+      let box = creatboxItem(item)
+      box.className = `gameItem ${item.class}`;
+      document.getElementById("gridContainer").appendChild(box);
+    });
+
+    outOfOrderList.slice(20, 33).forEach((item) => {
+      let box = creatboxItem(item)
+      box.className = `gameItem unit-1`;
+
+      document.getElementById("gridContainer").appendChild(box);
+    });
+  }
+
+  gridFill(gameList)
+
+
+  let outOfOrderList = gameList.sort(() => Math.random() - 0.5);
+  function creatnewGameboxItem(item) {
+    let div = document.createElement("div");
+    div.className = "newGameItem";
+    div.innerHTML = `
+                <a href="play.html?guid=${item.title}">
+                <img class="lazy" data-src="${item.thumb}" src="assets/placeholder.svg" alt="" />
+                <div style="padding: 10px" class="gameTitle font1">${item.title}</div>
+                </a>
+          `;
+    return div
+  }
+  let newGameList=outOfOrderList.slice(50, 56)
+  if (newGameList.length<4) {
+     document.querySelector('.newGameListContent').style.display = 'none';
+  }
+  newGameList.forEach((item) => {
+    document.querySelector('.newGameList').appendChild(creatnewGameboxItem(item))
+  })
+
+  
+
+  function gridFill2(gameList) {
+    let outOfOrderList = gameList.sort(() => Math.random() - 0.5);
+    let data = outOfOrderList.slice(100, 150);
+    let randomKeyList = [...new Array(data.length).keys()].sort(
+      () => Math.random() - 0.5
+    );
+    for (const [key, num] of Object.entries({
+      "unit-2": 12,
+      "unit3-row": 10,
+      "unit3-column": 10,
+    })) {
+      randomKeyList.splice(0, num).forEach((item, index) => {
+        data[item].class = key;
+      });
+    }
+    data.forEach((item) => {
+      if (!item.class) {
+        item.class = "unit-1";
+      }
+    });
+
+    function creatboxItem(item) {
+      let div = document.createElement("div");
+      div.innerHTML = `
+                <a href="play.html?guid=${item.title}">
+                <img class="lazy" data-src="${item.thumb}" src="assets/placeholder.svg" alt="" />
+                <div class="gameTitle font1">${item.title}</div>
+                </a>
+          `;
+      return div
+    }
+
+    data.forEach((item, index) => {
+      let box = creatboxItem(item)
+      box.className = `gameItem ${item.class}`;
+      document.getElementById("gridContainer2").appendChild(box);
+    });
+
+    outOfOrderList.slice(150, 210).forEach((item) => {
+      let box = creatboxItem(item)
+      box.className = `gameItem unit-1`;
+
+      document.getElementById("gridContainer2").appendChild(box);
+    });
+  }
+  gridFill2(gameList)
+
+  imgLazyLoad()
+  // for (const [key, num] of Object.entries(categoryGameObj)) {
+  //   var div = document.createElement("div");
+  //   div.className = "menuContentItem font4";
+  //   div.innerHTML = ` 
+  //                   <a href="index.html?category=${key}">${key}</a>
+  //             `;
+  //   document
+  //     .getElementsByClassName("menuFloatContent")[0]
+  //     .appendChild(div);
+  // }
+
+
+  let searchFloatContentDom = document.getElementsByClassName("header")[0]
+
+
+  document.addEventListener('click', function (event) {
+    // console.log(event.target);
+
+    if (document.getElementsByClassName("searchFloatContent")[0].classList.contains("active") || document.getElementsByClassName("menuFloatContent")[0].classList.contains("active")) {
+      if (event.target !== searchFloatContentDom && !searchFloatContentDom.contains(event.target)) {
+        closeSearchFloatContent()
+        closeMenu()
+        // 禁止事件捕获
+        event.stopPropagation();
+        event.preventDefault();
+      }
+    }
+
+
+  });
+
+
+  window.search_game = async function () {
+    let searchValue = search_name.value.trim();
+
+    if (searchValue === "") {
+      closeSearchFloatContent()
+      return;
+    } else {
+      document.getElementsByClassName("searchFloatContent")[0].classList.toggle("active", true);
+      document.getElementsByClassName("searchContent")[0].classList.toggle("focusNow", true);
+    }
+
+    document.getElementsByClassName("searchFloatContent")[0].innerHTML = `
+            <div class="nodata font3">
+              <h1>No related content found.</h1>
+              <h4>Try searching for something else or playing one of these awesome games.</h4>
+            </div>
+      `;
+
+
+    let filterGameList = await getGamesListApi({ format: 0, num: 24, page: 1, platform: 1, name: searchValue })
+
+
+
+
+    if (filterGameList.length > 0) {
+      filterGameList.forEach((item) => {
+        var div = document.createElement("div");
+        div.className = "search_gameItem";
+        div.onclick = function () {
+          window.location.href = `./play.html?guid=${item.title}`
+          closeSearchFloatContent()
+        }
+        div.innerHTML = ` 
+                <img  src="${item.thumb}" alt="" />
+                <div class="gameTitle font08">${item.title}</div>
+              `;
+        document.getElementsByClassName("searchFloatContent")[0].appendChild(div);
+      });
+
+    } else {
+      document.getElementsByClassName("nodata")[0].classList.toggle("active", true);
+    }
+  }
+
+
+
+  function closeSearchFloatContent() {
+    search_name.value = "";
+    document
+      .getElementsByClassName("searchFloatContent")[0]
+      .classList.toggle("active", false);
+    document
+      .getElementsByClassName("searchContent")[0]
+      .classList.toggle("focusNow", false);
+  }
+
+
+  window.openMenu = function (params) {
+
+    closeSearchFloatContent()
+    document
+      .getElementsByClassName("menuFloatContent")[0]
+      .classList.toggle("active");
+    document
+      .getElementsByClassName("menu")[0]
+      .classList.toggle("active");
+  }
+
+
+  window.closeMenu = function () {
+    document
+      .getElementsByClassName("menuFloatContent")[0]
+      .classList.toggle("active", false);
+    document
+      .getElementsByClassName("menu")[0]
+      .classList.toggle("active", false);
+  }
+
+
+
+
+</script>
+
+<!-- gtag -->
+
+
+</html>
