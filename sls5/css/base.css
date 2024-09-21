@@ -19,23 +19,78 @@
   /* @supports (color: hsl(from var(--color-black-1) h s calc(l + 40%))) {
     --color-background: hsl(from var(--color-black-1) h s calc(l + 40%));
   } */
-  --px-10:10px;
-  --fontSize:10px;
+  --px-10: 10px;
+  --fontSize: 10px;
   /* --color-background-gray: #f0efed;
   --color-background-red: #f0efed; */
-  --color-opposite:hsl(calc(var(--color-hsl-background-h) + 90), var(--color-hsl-background-s), var(--color-hsl-background-l));
-  --color-adjacent:hsl(calc(var(--color-hsl-background-h) - 60), calc(var(--color-hsl-background-s) + 40%), calc(var(--color-hsl-background-l) + 20%));
-  --color-font1: hsl(calc(var(--color-hsl-background-h) + 20), var(--color-hsl-background-s), calc(var(--color-hsl-background-l) - 50%));
-  --color-font2: hsl(calc(var(--color-hsl-background-h) + 20), var(--color-hsl-background-s), calc(var(--color-hsl-background-l) - 40%));
-  --color-font3: hsl(calc(var(--color-hsl-background-h) + 20), var(--color-hsl-background-s), calc(var(--color-hsl-background-l) - 30%));
-  --color-font4: hsl(calc(var(--color-hsl-background-h) + 20), var(--color-hsl-background-s), calc(var(--color-hsl-background-l) - 20%));
-  --color-background1: hsl(var(--color-hsl-background-h), var(--color-hsl-background-s), var(--color-hsl-background-l) );
-  --color-background2: hsla( calc(var(--color-hsl-background-h) + 50), calc(var(--color-hsl-background-s) + 40%), calc(var(--color-hsl-background-l) - 80%) , 0.3);
-  --color-background3: hsla(calc(var(--color-hsl-background-h) + 40), calc(var(--color-hsl-background-s) - 30%), calc(var(--color-hsl-background-l) - 20%) , 0.3);
-  --color-background-light: hsl(var(--color-hsl-background-h), var(--color-hsl-background-s), calc(var(--color-hsl-background-l) + 100%));
-  --color-background-light1: hsl(calc(var(--color-hsl-background-h) - 10), calc(var(--color-hsl-background-s) + 10%), calc(var(--color-hsl-background-l) + 50%));
-  --color-background-light2: hsla(calc(var(--color-hsl-background-h) - 10), calc(var(--color-hsl-background-s) - 40%), calc(var(--color-hsl-background-l) + 40%), 0.6);
-  --color-background-dark: hsl(var(--color-hsl-background-h), calc(var(--color-hsl-background-s) + 30%), calc(var(--color-hsl-background-l) - 20%));
+  --color-opposite: hsl(
+    calc(var(--color-hsl-background-h) + 90),
+    var(--color-hsl-background-s),
+    var(--color-hsl-background-l)
+  );
+  --color-adjacent: hsl(
+    calc(var(--color-hsl-background-h) - 60),
+    calc(var(--color-hsl-background-s) + 40%),
+    calc(var(--color-hsl-background-l) + 20%)
+  );
+  --color-font1: hsl(
+    calc(var(--color-hsl-background-h) + 20),
+    var(--color-hsl-background-s),
+    calc(var(--color-hsl-background-l) - 50%)
+  );
+  --color-font2: hsl(
+    calc(var(--color-hsl-background-h) + 20),
+    var(--color-hsl-background-s),
+    calc(var(--color-hsl-background-l) - 40%)
+  );
+  --color-font3: hsl(
+    calc(var(--color-hsl-background-h) + 20),
+    var(--color-hsl-background-s),
+    calc(var(--color-hsl-background-l) - 30%)
+  );
+  --color-font4: hsl(
+    calc(var(--color-hsl-background-h) + 20),
+    var(--color-hsl-background-s),
+    calc(var(--color-hsl-background-l) - 20%)
+  );
+  --color-background1: hsl(
+    var(--color-hsl-background-h),
+    var(--color-hsl-background-s),
+    var(--color-hsl-background-l)
+  );
+  --color-background2: hsla(
+    calc(var(--color-hsl-background-h) + 50),
+    calc(var(--color-hsl-background-s) + 40%),
+    calc(var(--color-hsl-background-l) - 80%),
+    0.3
+  );
+  --color-background3: hsla(
+    calc(var(--color-hsl-background-h) + 40),
+    calc(var(--color-hsl-background-s) - 30%),
+    calc(var(--color-hsl-background-l) - 20%),
+    0.3
+  );
+  --color-background-light: hsl(
+    var(--color-hsl-background-h),
+    var(--color-hsl-background-s),
+    calc(var(--color-hsl-background-l) + 100%)
+  );
+  --color-background-light1: hsl(
+    calc(var(--color-hsl-background-h) - 10),
+    calc(var(--color-hsl-background-s) + 10%),
+    calc(var(--color-hsl-background-l) + 50%)
+  );
+  --color-background-light2: hsla(
+    calc(var(--color-hsl-background-h) - 10),
+    calc(var(--color-hsl-background-s) - 40%),
+    calc(var(--color-hsl-background-l) + 40%),
+    0.6
+  );
+  --color-background-dark: hsl(
+    var(--color-hsl-background-h),
+    calc(var(--color-hsl-background-s) + 30%),
+    calc(var(--color-hsl-background-l) - 20%)
+  );
 }
 :root[cyan] {
   --color-hsl-background-h: 168;
@@ -67,10 +122,10 @@
   --color-hsl-background-l: 75%;
 }
 
-:root[peachBlossom] {
-  --color-hsl-background-h: 10;
-  --color-hsl-background-s: 65%;
-  --color-hsl-background-l: 80%;
+:root[emeraldGreen] {
+  --color-hsl-background-h: 140;
+  --color-hsl-background-s: 60%;
+  --color-hsl-background-l: 60%;
 }
 
 :root[skyBlue] {
@@ -85,10 +140,10 @@
   --color-hsl-background-l: 65%;
 }
 
-:root[emeraldGreen] {
-  --color-hsl-background-h: 140;
-  --color-hsl-background-s: 60%;
-  --color-hsl-background-l: 60%;
+:root[peachBlossom] {
+  --color-hsl-background-h: 10;
+  --color-hsl-background-s: 65%;
+  --color-hsl-background-l: 80%;
 }
 
 :root[plumPurple] {
@@ -105,10 +160,8 @@
 :root[bluishViolet] {
   --color-hsl-background-h: 240;
   --color-hsl-background-s: 50%;
-  --color-hsl-background-l:10%;
+  --color-hsl-background-l: 10%;
 }
-
-
 
 /* @media (prefers-color-scheme: light) {
   :root {
@@ -143,7 +196,7 @@
   font-size: 1.8rem;
   font-weight: 600;
 }
-.font5{
+.font5 {
   font-size: 4rem;
   font-weight: 800;
 }
