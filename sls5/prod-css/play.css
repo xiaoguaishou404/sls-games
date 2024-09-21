@@ -89,7 +89,7 @@
     cursor: pointer;
     padding:  10px;
     background-color: var(--color-background-light1);
-    color: var(--color-background-light);
+    color: var(--color-background1);
     border-radius: 10px;
     transition: 0.3s;
     display: flex;
