@@ -67,11 +67,15 @@
   --color-hsl-background-l: 75%;
 }
 
-:root[peachBlossom] {
-  --color-hsl-background-h: 10;
-  --color-hsl-background-s: 65%;
-  --color-hsl-background-l: 80%;
+
+
+
+:root[emeraldGreen] {
+  --color-hsl-background-h: 140;
+  --color-hsl-background-s: 60%;
+  --color-hsl-background-l: 60%;
 }
+
 
 :root[skyBlue] {
   --color-hsl-background-h: 210;
@@ -85,10 +89,10 @@
   --color-hsl-background-l: 65%;
 }
 
-:root[emeraldGreen] {
-  --color-hsl-background-h: 140;
-  --color-hsl-background-s: 60%;
-  --color-hsl-background-l: 60%;
+:root[peachBlossom] {
+  --color-hsl-background-h: 10;
+  --color-hsl-background-s: 65%;
+  --color-hsl-background-l: 80%;
 }
 
 :root[plumPurple] {
