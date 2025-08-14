@@ -155,7 +155,7 @@
               display: initial;
               padding: 5px 20px;
               border-radius: calc(infinity * 1px);
-
+              color:var(--color-background1);
               background-color: var(--color-background-light1);
             }
         #indexPage .newGameGridBox .game-item {
