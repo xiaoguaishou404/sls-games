@@ -1,0 +1,68 @@
+.textLink {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: 0.4s;
+  padding: 3px;
+  &:hover {
+    background-color: hsl(from currentColor calc(h - 120) s l / 0.2);
+  }
+}
+
+/* 渐变文本 */
+/* .userBox{
+  --g1: #ffffff;
+  --g2: #cca48d;
+} */
+.gradient-text {
+  background: linear-gradient(
+    to bottom,
+    var(--g1, #ffffff),
+    var(--g2, #cca48d)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 2. CSS 部分 */
+img.lazy {
+  filter: blur(10px);
+  transition: filter 0.3s;
+  width: 100%; /* 确保图片大小 */
+  height: auto;
+}
+
+img.lazy.loaded {
+  filter: blur(0);
+}
+
+@keyframes myscale {
+  0% {
+    translate: 0 0;
+  }
+
+  20% {
+    translate: 50% 50%;
+  }
+
+  40% {
+    translate: -50% 50%;
+  }
+
+  60% {
+    translate: -50% -50%;
+  }
+
+  80% {
+    translate: 50% -50%;
+  }
+
+  100% {
+    translate: 50% 50%;
+  }
+}
+
+

@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "postcss": "npx postcss ./sls1/css/*.css -d ./sls1/prod-css/ --watch"
+  },
+  "devDependencies": {
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "postcss-preset-env": "^10.2.4"
+  }
+}

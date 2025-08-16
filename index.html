@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=375, user-scalable=no" />
+    <title>小怪兽游戏</title>
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="prod-css/index.css" />
+  </head>
+
+  <body id="indexPage">
+    <div class="header">
+      <div class="headeContent">
+        <a href="./" class="logo">
+          <img src="logo.png" />
+        </a>
+        <div class="searchContent">
+        </div>
+        <div class="menu">
+          <img class="Menu" src="./assets/Menu.svg" onclick="openMenu()" />
+          <img class="Close" src="./assets/Close.svg" onclick="openMenu()" />
+        </div>
+      </div>
+      <div class="menuFloatContent"></div>
+    </div>
+    
+    <div id="gridContainer"></div>
+    <div class="site-info-area font1">
+      <h2 style="text-align: center">
+        If you enjoy our site, learn more about GAME!
+      </h2>
+
+      <p>
+        Discover a world of exciting challenges online at GAME, the ultimate
+        destination for amazing games designed for girls, boys, and kids with
+        diverse interests! Our website offers a vast collection of free games,
+        accessible on mobile phones, tablets, computers, and laptops. With a
+        variety of fun categories, you can enjoy your favorite characters in
+        games like motorcycle, adventure, spa, action, makeover, and dress-up,
+        suitable for both boys and girls. Popular cartoon categories include
+        Princesses, Ben 10, Batman, Superheroes, Pokemon, Fantastic Four, Hulk,
+        Thor, Little Mermaid, Moana, and Frozen.
+        10,Batman,Superheroes,Pokemon,Fantastic Four,Hulk,Thor,Little
+        Mermaid,Moana or Frozen!
+      </p>
+
+      <p>
+        Experience cutting-edge technology with HTML5 games, ensuring seamless
+        play on mobile devices. Just connect to the internet, visit GAME via
+        Google, and start playing with friends. Explore our new 2 Player
+        category, along with 3 Player and even 4 Player games for children.
+        Challenge yourself with adventure, chess, puzzle, shooting, and racing
+        games, featuring fast cars, 3D vehicles, motorcycles, helicopters,
+        airplanes, and F1 cars. Dive into endless fun and adventure on GAME!
+      </p>
+    </div>
+    <div class="shengming font1">
+      <h3 style="text-align: center">About Us</h3>
+      <div>
+        User Responsibility: Users shall bear full responsibility for the
+        content they provide in accordance with the law, and the platform shall
+        not assume any responsibility. The content uploaded by the user only
+        represents the author's viewpoint and does not represent the platform's
+        viewpoint. The platform has the right to modify and interpret this
+        statement. If there are any changes, the user will be notified in an
+        appropriate manner. The user's continued use of the game service is
+        deemed to have accepted the modified declaration
+      </div>
+      <div class="policy">
+        <a href="./PrivacyPolicy.html">Privacy Policy</a>
+        <span> &nbsp; | &nbsp;</span>
+        <a href="./TermsofService.html">Terms-of Service</a>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="utils/business.js"></script>
+
+  <script type="module">
+    import { imgLazyLoad } from "./utils/tools.js";
+
+    import { getGamesListApi } from "./utils/business.js";
+    let allGameList = await getGamesListApi({ num: 500, page: 1 });
+
+    const gameList = allGameList;
+
+    function gridFill(gameList) {
+      let outOfOrderList = gameList.sort(() => Math.random() - 0.5);
+      let data = outOfOrderList.slice(0, 100);
+      let randomKeyList = [...new Array(data.length).keys()].sort(
+        () => Math.random() - 0.5
+      );
+      for (const [key, num] of Object.entries({
+        "unit-2": 20,
+        "unit3-row": 10,
+        "unit3-column": 10,
+      })) {
+        randomKeyList.splice(0, num).forEach((item, index) => {
+          data[item].class = key;
+        });
+      }
+      data.forEach((item) => {
+        if (!item.class) {
+          item.class = "unit-1";
+        }
+      });
+
+      function creatboxItem(item) {
+        let div = document.createElement("div");
+        div.innerHTML = `
+                <a href="${item.url}">
+                <img class="lazy" data-src="${item.thumb}" src="assets/placeholder.svg" alt="" />
+                <div class="gameTitle font1">${item.title}</div>
+                </a>
+          `;
+        return div;
+      }
+
+      data.forEach((item, index) => {
+        let box = creatboxItem(item);
+        box.className = `gameItem ${item.class}`;
+        document.getElementById("gridContainer").appendChild(box);
+      });
+
+      outOfOrderList.slice(100, 128).forEach((item) => {
+        let box = creatboxItem(item);
+        box.className = `gameItem unit-1`;
+
+        document.getElementById("gridContainer").appendChild(box);
+      });
+    }
+
+    gridFill(gameList);
+    imgLazyLoad();
+
+    // .classList.toggle("active", false);
+  </script>
+</html>

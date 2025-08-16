@@ -1,0 +1,23 @@
+/* hsl()新语法不要去使用逗号分隔和%号单位 */
+:root {
+  --fontSize: 16px;
+  --border-radius: calc(infinity * 1px);
+  --px-10: 10px;
+
+  --primary-color: hsl(22 23 65 / 1);
+  --primary-bg-color: hsl(220 20 97 / 1);
+}
+
+:root[color-scheme="cyan"] {
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    --color-background: var( --color-background-gray);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(  --color-background-red);
+  }
+} */
