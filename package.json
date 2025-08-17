@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "postcss": "npx postcss ./sls1/css/*.css -d ./sls1/prod-css/ --watch"
+    "postcss": "npx postcss ./css/*.css -d ./prod-css/ --watch"
   },
   "devDependencies": {
     "postcss": "^8.5.6",
